@@ -4,7 +4,7 @@ ec-ha-scripts
 ## Summary
 I was initially tasked with manually setting up a Chef HA topology environment.  As I followed the instructions, documented my own steps, and created a few helper scripts I figured the best way to validate my steps where to automate what I could easily.  The scripts in this project are targeted for a single path - Ubuntu 12.04 systems using Rackspace clould instances.  The caveats for Rackspace have been documented.  The scripts do not include setting up the instances, but those steps are documented below.
 
-If you are not using Rackspace or Ubuntu 12.04, the scripts can still be used as a guide for other systems.
+If you are not using Rackspace or Ubuntu 12.04, the scripts can still be used as a general guide for other systems.
 
 ## Requirements
 * Rackspace account
@@ -12,6 +12,7 @@ If you are not using Rackspace or Ubuntu 12.04, the scripts can still be used as
 
 ## Important Docs
 [Scaled Back End Installation](http://docs.opscode.com/install_server_be.html)
+
 [Scaled Back End Overview](http://docs.opscode.com/server_deploy_be.html)
 
 ## Setup
@@ -45,18 +46,21 @@ Host be1 be2 fe1 fe2
 
 ## Execution
 1. ./bootstrap.sh
-2. Generate s3 url. I have been using dendrite.
+2. Generate s3 url. I have been using dendrite, example below.
+3. ./install_chef.sh 'url'
+4. ./configure.sh
+
 ```
 bundle exec bin/dendrite package list private-chef --build-type=release --platform=ubuntu --platform-version=12.04 --download-urls
 ```
-3. ./install_chef.sh 'url'
-4. ./configure.sh
 
 ## Todos
 * Mail Relay
 * Automate S3 URL generation (dendrite)
 
 ## Future
-The lessons learned and concepts in this project are to be carried to a Chef mainstream project.  It could be a cookbook executed by a knife plugin - still in the works.  Setting up environments will be included as part of the automation (Vagrant, EC2, etc). 
+The lessons learned and concepts in this project are to be carried to a Chef mainstream project.  It could be a cookbook executed by a knife plugin - still in the works.  Setting up environments will be included as part of the automation (Vagrant, EC2, etc using chef-metal)
 
 ## Discoveries
+* Configuring and starting DRBD was not as straight forward as the doc instructions
+* Aborting the initial reconfigure can be enhanced to stop on it's own (duh)
