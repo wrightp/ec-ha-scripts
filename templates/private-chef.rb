@@ -11,6 +11,7 @@ server "be2.local",
   :role => "backend",
   :cluster_ipaddress => ""
 
+# back end load balancer IP
 backend_vip "",
   :ipaddress => "",
   :device => "eth0",
@@ -24,5 +25,6 @@ server "fe2.local",
   :ipaddress => "",
   :role => "frontend"
 
+# front end load balancer IP
 api_fqdn ""
  

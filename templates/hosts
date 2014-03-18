@@ -5,6 +5,9 @@ ff00::0 ip6-mcastprefix
 ff02::1 ip6-allnodes
 ff02::2 ip6-allrouters
 
-# SERVERS HERE
+ip be1.local be1
+ip be2.local be2
+ip fe1.local fe1
+ip fe2.local fe2
 
 127.0.0.1 localhost
