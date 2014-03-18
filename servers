@@ -1,0 +1,8 @@
+# Designates groupings of server types
+BOOTSTRAP="be1.local"
+BACKUP="be2.local"
+BACKENDS="$BOOTSTRAP $BACKUP"
+FRONTENDS="fe1.local fe2.local"
+
+NONBOOTSTRAP_SERVERS="$BACKUP $FRONTENDS"
+ALL="$BACKENDS $FRONTENDS"

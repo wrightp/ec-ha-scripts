@@ -1,0 +1,20 @@
+BackendServer
+  hostname
+  ipaddress
+  role = 'backend'
+  cluster_ip
+  bootstrap
+
+FrontendServer
+  hostname
+  ip
+  role = 'frontend'
+
+BackendVipServer
+  hostname
+  ip
+  device
+  heartbeat_device
+
+ApiFqdn
+  domainname
